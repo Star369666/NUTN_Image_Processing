@@ -697,7 +697,7 @@ function App
                 count = count + 1;
                 fprintf(fid, "%d.處理方法: Gaussian Filter - 去除高斯噪聲\n", count);
                 fprintf(fid, "  函式: imfilter(A, fspecial('gaussian', [m n], sigma), 'replicate')\n");
-                fprintf(fid, "  參數: A = 輸入影像, [m n] = 濾波視窗大小, sigma = 標準差\n\n");
+                fprintf(fid, "  參數: A = 輸入影像, [m n] = 濾波視窗大小, sigma = 標準差\n");
             end
 
             % 處理說明 - 松柏躁聲 + 斑點躁聲 + Localvar躁聲
@@ -719,7 +719,7 @@ function App
                     count = count + 1;
                     fprintf(fid, "%d.處理方法: Combined Median and Gaussian Filter - %s\n", count, noise_show{j});
                     fprintf(fid, "  函式: medfilt2(A, [m n]) 和 imfilter(A, fspecial('gaussian', [m n], sigma), 'replicate')\n");
-                    fprintf(fid, "  參數: A = 輸入影像, [m n] = 濾波視窗大小 (中值濾波)\n        A = 輸入影像, [m n] = 濾波視窗大小, sigma = 標準差 (高斯濾波)\n\n");
+                    fprintf(fid, "  參數: A = 輸入影像, [m n] = 濾波視窗大小, sigma = 標準差 (高斯濾波)\n");
                 end
             end
 
@@ -760,7 +760,7 @@ function App
                 count = count + 1;
                 fprintf(fid, "%d.處理方法: Adaptive Median Filter - 去除椒鹽噪聲\n", count);
                 fprintf(fid, "  函式: medfilt2(A, [m n])\n");
-                fprintf(fid, "  參數: A = 輸入影像, [m n] = 濾波視窗大小\n\n");
+                fprintf(fid, "  參數: A = 輸入影像, [m n] = 濾波視窗大小\n");
             end
 
             % 處理說明 - Laplacian Variance
@@ -900,13 +900,13 @@ function App
                 result = normalize(t1);
 
                 count = count + 1;
-                if any(contains(lighting_issues, 'Under exposure'))
+                if any(contains(lighting_issues, 'Over exposure'))
                     fprintf(fid, "%d.處理方法: Power Law Transformation - 修正過度曝光\n", count);
                 elseif any(contains(lighting_issues, 'non-uniform lighting'))
                     fprintf(fid, "%d.處理方法: Power Law Transformation - 修正光照不均\n", count);
                 end
                 fprintf(fid, "  函式: A .^ gamma\n");
-                fprintf(fid, "  參數: A = 輸入影像, gamma = power law factor\n\n");
+                fprintf(fid, "  參數: A = 輸入影像, gamma = power law factor\n");
             end
 
             % 處理說明 - 曝光不足
@@ -926,7 +926,7 @@ function App
                 count = count + 1;
                 fprintf(fid, "%d.處理方法: Log Transformation - 增強曝光不足區域\n", count);
                 fprintf(fid, "  函式: c * log(1 + A)\n");
-                fprintf(fid, "  參數: A = 正規化輸入影像(0~1範圍), c = 增強係數\n\n");
+                fprintf(fid, "  參數: A = 正規化輸入影像(0~1範圍), c = 增強係數\n");
             end
 
             % 處理說明 - 對比度不足
@@ -944,7 +944,7 @@ function App
                 count = count + 1;
                 fprintf(fid, "%d.處理方法: Contrast Stretching - 增強對比度不足\n", count);
                 fprintf(fid, "  函式: (A - min) / (max - min)\n");
-                fprintf(fid, "  參數: A = 輸入影像, min, max = 每個通道的最小和最大值\n\n");
+                fprintf(fid, "  參數: A = 輸入影像, min, max = 每個通道的最小和最大值\n");
             end
 
             % 色彩問題診斷 - 色彩單調(各通道變異小)
@@ -956,7 +956,7 @@ function App
                 count = count + 1;
                 fprintf(fid, "%d.處理方法: 對比度調整 - 改善色彩單調問題\n", count);
                 fprintf(fid, "  函式: A * contrast\n");
-                fprintf(fid, "  參數: A = 輸入影像, contrast = 對比度\n\n");
+                fprintf(fid, "  參數: A = 輸入影像, contrast = 對比度\n");
             end
             
             % 色彩問題診斷 - 色偏
@@ -994,7 +994,7 @@ function App
                 fprintf(fid, "  參數: ratios(by channel(s)) = ");
                 for j = 1:size1
                     if j == size1
-                        fprintf(fid, "%.2f\n\n", ratio{j});
+                        fprintf(fid, "%.2f\n", ratio{j});
                     else
                         fprintf(fid, "%.2f, ", ratio{j});
                     end
@@ -1041,7 +1041,7 @@ function App
                 count = count + 1;
                 fprintf(fid, "%d.處理方法: 色差強化 - 提高色彩飽和度\n", count);
                 fprintf(fid, "  函式: 亮度與色差分離增強法\n");
-                fprintf(fid, "  參數: enhancement = 色差增強係數\n\n");
+                fprintf(fid, "  參數: enhancement = 色差增強係數\n");
             elseif any(contains(detected_color, 'High saturation'))
                 % 降低過高的飽和度 - 通過減弱色彩差異
                 r = double(img(:,:,1));
@@ -1080,7 +1080,7 @@ function App
                 count = count + 1;
                 fprintf(fid, "%d.處理方法: 色差減弱 - 降低過高色彩飽和度\n", count);
                 fprintf(fid, "  函式: 亮度與色差分離減弱法\n");
-                fprintf(fid, "  參數: reduction = 色差減弱係數\n\n");
+                fprintf(fid, "  參數: reduction = 色差減弱係數\n");
             end
             
             % 色彩問題診斷 - 色噪聲
@@ -1103,7 +1103,7 @@ function App
                 count = count + 1;
                 fprintf(fid, "%d.處理方法: 高斯濾波 - 降低色彩噪聲\n", count);
                 fprintf(fid, "  函式: imfilter(channel, fspecial('gaussian', kernel_size, sigma), 'replicate')\n");
-                fprintf(fid, "  參數: kernel_size = [%d %d]\n  sigma = %.1f\n\n", kernel_size(1), kernel_size(2), sigma);
+                fprintf(fid, "  參數: kernel_size = [%d %d], sigma = %.1f\n", kernel_size(1), kernel_size(2), sigma);
             end
 
             % 更新影像到輸出區（這邊可以加你後續的增強處理）
