@@ -1,0 +1,119 @@
+1.
+Localvar Noise
+Laplacian-based blur
+Edge-based blur
+Low saturation
+
+Gaussian Noise
+Salt & Pepper Noise
+Localvar Noise
+Over exposure
+Low saturation
+
+Gaussian Noise
+Low saturation
+
+2.
+Localvar Noise
+Laplacian-based blur
+Edge-based blur
+Low saturation
+
+Gaussian Noise
+Salt & Pepper Noise
+Localvar Noise
+Over exposure
+Low saturation
+
+Gaussian Noise
+Low saturation
+
+3.
+Laplacian-based blur
+Edge-based blur
+Low saturation
+
+Salt & Pepper Noise
+Localvar Noise
+Over exposure
+Low saturation
+
+Low saturation
+
+4.
+Localvar Noise
+Laplacian-based blur
+Edge-based blur
+Low saturation
+
+Gaussian Noise
+Salt & Pepper Noise
+Localvar Noise
+Over exposure
+Low saturation
+Color noise
+Color noise
+
+Gaussian Noise
+Low saturation
+Color noise
+
+5.
+Laplacian-based blur
+Edge-based blur
+Low saturation
+
+Over exposure
+Low saturation
+
+Low saturation
+
+6.(same as 4)
+Localvar Noise
+Laplacian-based blur
+Edge-based blur
+Low saturation
+
+Gaussian Noise
+Salt & Pepper Noise
+Localvar Noise
+Over exposure
+Low saturation
+
+Gaussian Noise
+Low saturation
+
+7.同6
+8.同6
+9.同6 -- 作廢
+
+10.(sol10)
+Salt & Pepper Noise
+Localvar Noise
+Edge-based blur
+Over exposure
+Low saturation
+
+Gaussian Noise
+Speckle Noise
+Localvar Noise
+Edge-based blur
+Over exposure
+
+Gaussian Noise
+Low saturation
+
+11.(sol12)
+Salt & Pepper Noise
+Localvar Noise
+Over exposure
+Low saturation
+
+Gaussian Noise
+Salt & Pepper Noise
+Speckle Noise
+Localvar Noise
+Over exposure
+
+Gaussian Noise
+Low saturation
